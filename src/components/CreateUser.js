@@ -16,7 +16,7 @@ axios.post('http://localhost:80/api/user/save',inputs)
 console.log(inputs);
 
  }
- 
+  
   return (
     <div>
       <h1>Create User</h1>
