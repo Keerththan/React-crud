@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: *");
 include 'DbConnect.php';
 $objDb=new DbConnect;
 $conn = $objDb->connect();
-//var_dump($conn);
+
 
 
 $method =$_SERVER['REQUEST_METHOD'];
