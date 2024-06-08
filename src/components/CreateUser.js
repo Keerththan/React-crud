@@ -14,7 +14,7 @@ const handlechange =(event)=>{
 }
  const handleSubmit = (event) => {
 event.preventDefault();
-
+ 
 axios.post('http://localhost:80/crud/api/user/save',inputs).then(function(response){
 console.log(inputs);
           console.log(response.data);
