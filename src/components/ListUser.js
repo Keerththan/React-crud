@@ -1,4 +1,5 @@
 import axios from "axios"
+
 import { useEffect,useState} from "react";
 import { Link } from "react-router-dom";
 
@@ -13,13 +14,19 @@ function ListUser(){
 
   function getUsers(){
 
-      axios.get('http://localhost:80/crud/api/user/').then(function(response){
+      axios.get('http://localhost:80/crud/api/users/').then(function(response){
          console.log(response.data);
          setUsers(response.data);
 
-         })
+         });
 
   }
+  const deleteUser = (id) => {
+    axios.delete(`http://localhost:80/crud/api/users/${id}/delete`).then(function(response){
+        console.log(response.data);
+        getUsers();
+    });
+}
 
     return(
       <div>
@@ -43,7 +50,7 @@ function ListUser(){
           <td>{user.mobile}</td>
           <td>
             <Link to={`user/${user.id}/edit` } style={{marginRight:"10px"}}>Edit</Link>
-            <button>Delete</button>
+            <button onClick={() => deleteUser(user.id)}>Delete</button>
           </td>
           
 
